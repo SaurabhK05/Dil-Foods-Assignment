@@ -1,0 +1,32 @@
+export const SalesOfProducts = [
+  {
+    year: 2022,
+    Laptop: 2150,
+    Smartphone: 1800,
+    TV: 2500,
+    Headphones: 1900,
+    Tablet: 2300,
+    Camera: 2050,
+    "Fitness Tracker": 2200,
+  },
+  {
+    year: 2023,
+    Laptop: 1900,
+    Smartphone: 2400,
+    TV: 2200,
+    Headphones: 2100,
+    Tablet: 2450,
+    Camera: 2250,
+    "Fitness Tracker": 2350,
+  },
+  {
+    year: 2024,
+    Laptop: 2350,
+    Smartphone: 2000,
+    TV: 2600,
+    Headphones: 2150,
+    Tablet: 2250,
+    Camera: 2400,
+    "Fitness Tracker": 2100,
+  },
+];
