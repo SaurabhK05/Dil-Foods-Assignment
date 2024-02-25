@@ -1,19 +1,18 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function PieChart(props) {
-  const NumberOfUsers = useSelector((state) => state.pieUserActivityDataSet);
-
+export default function DoughnutChart() {
+  const COPInRevenue = useSelector((state) => state.pieCOPInRevenue);
   const data = {
-    labels: NumberOfUsers.map((label) => label.Key),
+    labels: COPInRevenue.data.product.map((label) => label),
     datasets: [
       {
         label: "No of Users",
-        data: NumberOfUsers.map((data) => data.Number_of_Users),
+        data: COPInRevenue.data.qty.map((data) => data),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -34,5 +33,5 @@ export default function PieChart(props) {
       },
     ],
   };
-  return <Pie data={data} />;
+  return <Doughnut data={data} />;
 }

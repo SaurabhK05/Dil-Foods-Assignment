@@ -1,62 +1,78 @@
-export const NumberOfUsers = [
+const NumberOfUsersStateWise = [
   {
-    Region: "West",
-    State: "Maharashtra",
+    Key: "Maharashtra",
     Number_of_Users: 15000,
   },
   {
-    Region: "South",
-    State: "Tamil Nadu",
+    Key: "Tamil Nadu",
     Number_of_Users: 10000,
   },
   {
-    Region: "South",
-    State: "Karnataka",
+    Key: "Karnataka",
     Number_of_Users: 9000,
   },
   {
-    Region: "North",
-    State: "Uttar Pradesh",
+    Key: "Uttar Pradesh",
     Number_of_Users: 12000,
   },
   {
-    Region: "West",
-    State: "Gujarat",
+    Key: "Gujarat",
     Number_of_Users: 8000,
   },
   {
-    Region: "East",
-    State: "West Bengal",
+    Key: "West Bengal",
     Number_of_Users: 7500,
   },
   {
-    Region: "South",
-    State: "Telangana",
+    Key: "Telangana",
     Number_of_Users: 5000,
   },
   {
-    Region: "North",
-    State: "Punjab",
+    Key: "Punjab",
     Number_of_Users: 4000,
   },
   {
-    Region: "North",
-    State: "Haryana",
+    Key: "Haryana",
     Number_of_Users: 3500,
   },
   {
-    Region: "Central",
-    State: "Madhya Pradesh",
+    Key: "Madhya Pradesh",
     Number_of_Users: 5500,
   },
   {
-    Region: "North",
-    State: "Rajasthan",
+    Key: "Rajasthan",
     Number_of_Users: 7000,
   },
   {
-    Region: "South",
-    State: "Andhra Pradesh",
+    Key: "Andhra Pradesh",
     Number_of_Users: 6500,
   },
 ];
+
+const NumberOfUsersRegionWise = [
+  {
+    Key: "West",
+    Number_of_Users: 23000,
+  },
+  {
+    Key: "East",
+    Number_of_Users: 7500,
+  },
+  {
+    Key: "Central",
+    Number_of_Users: 5500,
+  },
+  {
+    Key: "North",
+    Number_of_Users: 26500,
+  },
+  {
+    Key: "South",
+    Number_of_Users: 30500,
+  },
+];
+
+export const NumberOfUsers = {
+  state: NumberOfUsersStateWise,
+  region: NumberOfUsersRegionWise,
+};

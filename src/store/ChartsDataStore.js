@@ -8,10 +8,24 @@ const ChartsDataSlice = createSlice({
     setLineChartDataSet: (state, action) => {
       state.lineChartDataSet = action.payload;
     },
+    setPieUserActivityDataSet: (state, action) => {
+      state.pieUserActivityDataSet = action.payload;
+    },
+    setBarSOPDataSet: (state, action) => {
+      state.barSOPDataSet = action.payload;
+    },
+    setCOPInRevenue: (state, action) => {
+      state.pieCOPInRevenue = action.payload;
+    },
   },
 });
 
-export const { setLineChartDataSet } = ChartsDataSlice.actions;
+export const {
+  setLineChartDataSet,
+  setPieUserActivityDataSet,
+  setBarSOPDataSet,
+  setCOPInRevenue,
+} = ChartsDataSlice.actions;
 
 const ChartsDataStore = configureStore({
   reducer: ChartsDataSlice.reducer,
