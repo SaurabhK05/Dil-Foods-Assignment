@@ -1,23 +1,27 @@
-import logo from "./logo.svg";
+import DashboardCard from "./components/DashboardCards/DashboardCard";
+import LineChart from "./components/Chats/LineChart";
+import DropDown from "./components/DropDown";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="">E-Commerce Dashboard</h1>
+      <div className="dashboard-cards mt-4 flex flex-wrap justify-evenly">
+        <DashboardCard title="CAC" currency="$" value="248" />
+        <DashboardCard title="CAC" currency="$" value="248" />
+        <DashboardCard title="CAC" currency="$" value="248" />
+        <DashboardCard title="CAC" currency="$" value="248" />
+      </div>
+      {/* <div className="dashboard-carousel">
+        <Carousel />
+      </div> */}
+      <div className="charts-container">
+        <div className="line-chart">
+          <DropDown />
+          <LineChart />
+        </div>
+      </div>
     </div>
   );
 }
