@@ -17,6 +17,9 @@ const ChartsDataSlice = createSlice({
     setCOPInRevenue: (state, action) => {
       state.pieCOPInRevenue = action.payload;
     },
+    setProfitByYear: (state, action) => {
+      state.profitByYear = action.payload;
+    },
   },
 });
 
@@ -25,6 +28,7 @@ export const {
   setPieUserActivityDataSet,
   setBarSOPDataSet,
   setCOPInRevenue,
+  setProfitByYear,
 } = ChartsDataSlice.actions;
 
 const ChartsDataStore = configureStore({

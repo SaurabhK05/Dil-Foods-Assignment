@@ -8,6 +8,7 @@ import {
   setPieUserActivityDataSet,
   setBarSOPDataSet,
   setCOPInRevenue,
+  setProfitByYear,
 } from "../store/ChartsDataStore";
 import { useDispatch } from "react-redux";
 
@@ -16,19 +17,47 @@ export default function DropDown(props) {
   const [region, setRegion] = React.useState("State");
   const dispatch = useDispatch();
 
-  if (props.dataSourceType === "line-chart") {
+  const filterDataYearly = (dataSource, event) => {
+    const selectedData = dataSource.filter((data) => {
+      if (data.year == event.target.value) {
+        return data;
+      }
+    });
+    return selectedData[0];
+  };
+
+  if (props.dataSourceType === "year-wise") {
     const handleChange = (event) => {
-      const selectedData = props.dataSource.filter((data) => {
-        if (data.year == event.target.value) {
-          return data;
-        }
-      });
-      dispatch(setLineChartDataSet(selectedData[0]));
+      const filterSalesOfProducts = filterDataYearly(
+        props.dataSource.salesOfProducts,
+        event
+      );
+      const filterRovCompany = filterDataYearly(
+        props.dataSource.rovCompany,
+        event
+      );
+      const filterCopInRevenue = filterDataYearly(
+        props.dataSource.copInRevenue,
+        event
+      );
+      const filterProfitByYear = filterDataYearly(
+        props.dataSource.profitByYear,
+        event
+      );
+
+      dispatch(setBarSOPDataSet(filterSalesOfProducts));
+      dispatch(setLineChartDataSet(filterRovCompany));
+      dispatch(setCOPInRevenue(filterCopInRevenue));
+      dispatch(setProfitByYear(filterProfitByYear));
+
       setYear(event.target.value);
     };
 
     return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <FormControl
+        sx={{ m: 1, minWidth: 120, backgroundColor: "white" }}
+        size="small"
+      >
         <InputLabel id="demo-select-small-label">Year</InputLabel>
         <Select
           labelId="demo-select-small-label"
@@ -37,26 +66,32 @@ export default function DropDown(props) {
           label="Year"
           onChange={handleChange}
         >
-          {props.dataSource.map((data) => {
+          {props.dataSource.salesOfProducts.map((data) => {
             return <MenuItem value={data.year}>{data.year}</MenuItem>;
           })}
         </Select>
       </FormControl>
     );
-  } else if (props.dataSourceType === "pie-chart") {
+  } else {
     const handleChange = (event) => {
-      if (event.target.value == "Region") {
-        // console.log(regionSumsArray, "regionSumsArray");
-        dispatch(setPieUserActivityDataSet(props.dataSource.region));
+      if (event.target.value === "Region") {
+        dispatch(
+          setPieUserActivityDataSet(props.dataSource.userActivity.region)
+        );
         setRegion(event.target.value);
       } else {
-        dispatch(setPieUserActivityDataSet(props.dataSource.state));
+        dispatch(
+          setPieUserActivityDataSet(props.dataSource.userActivity.state)
+        );
         setRegion(event.target.value);
       }
     };
 
     return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <FormControl
+        sx={{ m: 1, minWidth: 120, backgroundColor: "white" }}
+        size="small"
+      >
         <InputLabel id="demo-select-small-label">Year</InputLabel>
         <Select
           labelId="demo-select-small-label"
@@ -67,59 +102,6 @@ export default function DropDown(props) {
         >
           <MenuItem value="Region">Region</MenuItem>;
           <MenuItem value="State">State</MenuItem>;
-        </Select>
-      </FormControl>
-    );
-  } else if (props.dataSourceType === "prod-pie-chart") {
-    const handleChange = (event) => {
-      const selectedData = props.dataSource.filter((data) => {
-        if (data.year == event.target.value) {
-          return data;
-        }
-      });
-      console.log(selectedData, "selectedata");
-      dispatch(setCOPInRevenue(selectedData[0]));
-      setYear(event.target.value);
-    };
-    return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel id="demo-select-small-label">Year</InputLabel>
-        <Select
-          labelId="demo-select-small-label"
-          id="demo-select-small"
-          value={year}
-          label="Year"
-          onChange={handleChange}
-        >
-          {props.dataSource.map((el) => {
-            return <MenuItem value={el.year}>{el.year}</MenuItem>;
-          })}
-        </Select>
-      </FormControl>
-    );
-  } else {
-    const handleChange = (event) => {
-      const selectedData = props.dataSource.filter((data) => {
-        if (data.year == event.target.value) {
-          return data;
-        }
-      });
-      dispatch(setBarSOPDataSet(selectedData[0]));
-      setYear(event.target.value);
-    };
-    return (
-      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-        <InputLabel id="demo-select-small-label">Year</InputLabel>
-        <Select
-          labelId="demo-select-small-label"
-          id="demo-select-small"
-          value={year}
-          label="Year"
-          onChange={handleChange}
-        >
-          {props.dataSource.map((el) => {
-            return <MenuItem value={el.year}>{el.year}</MenuItem>;
-          })}
         </Select>
       </FormControl>
     );

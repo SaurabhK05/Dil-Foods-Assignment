@@ -1,4 +1,8 @@
-import { COPInRevenue, CompanyRevenue } from "../models/CompanyRevenue";
+import {
+  COPInRevenue,
+  CompanyRevenue,
+  ProfitableYear as ProfitByYear,
+} from "../models/CompanyRevenue";
 import { SalesOfProducts } from "../models/SalesOfProducts";
 import { NumberOfUsers } from "../models/UserActivity";
 
@@ -7,4 +11,5 @@ export const globalInitialState = {
   pieUserActivityDataSet: NumberOfUsers.state,
   pieCOPInRevenue: COPInRevenue[0],
   barSOPDataSet: SalesOfProducts[0],
+  profitByYear: ProfitByYear[0],
 };

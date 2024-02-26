@@ -1,44 +1,59 @@
 import DashboardCard from "./components/DashboardCards/DashboardCard";
-import LineChart from "./components/Chats/LineChart";
+import Carousel from "./components/Carousel/Carousel";
+import { useEffect, useState } from "react";
 import DropDown from "./components/DropDown";
 import { COPInRevenue, CompanyRevenue } from "./models/CompanyRevenue";
 import { NumberOfUsers } from "./models/UserActivity";
-import "./App.css";
-import PieChart from "./components/Chats/PieChart";
 import { SalesOfProducts } from "./models/SalesOfProducts";
-import BarChart from "./components/Chats/BarChart";
-import DoughnutChart from "./components/Chats/Doughnut";
+import { ProfitableYear } from "./models/CompanyRevenue";
+import { useSelector } from "react-redux";
+import "./App.css";
 
 function App() {
+  const profitByYear = useSelector((state) => state.profitByYear);
+  // const [profitableYear, setProfitableYear] = useState({
+  //   year: 1990,
+  //   totalProfit: 0,
+  // });
+
+  // useEffect(() => {
+  //   ProfitableYear.map((data) => {
+  //     if (data.totalProfit > profitableYear.totalProfit) {
+  //       setProfitableYear(data);
+  //     }
+  //   });
+  // }, []);
+
   return (
     <div className="App">
-      <h1 className="">E-Commerce Dashboard</h1>
+      <h1 className="md:text-xl lg:text-2xl">E-Commerce Dashboard</h1>
+      <DropDown
+        dataSourceType="year-wise"
+        dataSource={{
+          rovCompany: CompanyRevenue,
+          copInRevenue: COPInRevenue,
+          salesOfProducts: SalesOfProducts,
+          profitByYear: ProfitableYear,
+        }}
+      />
+      <DropDown
+        dataSourceType="region-wise"
+        dataSource={{
+          userActivity: NumberOfUsers,
+        }}
+      />
       <div className="dashboard-cards mt-4 flex flex-wrap justify-evenly">
-        <DashboardCard title="CAC" currency="$" value="248" />
+        <DashboardCard
+          title={`Company Profit in : ${profitByYear.year}`}
+          currency="&#8377;"
+          value={profitByYear.totalProfit}
+        />
         <DashboardCard title="CAC" currency="$" value="248" />
         <DashboardCard title="CAC" currency="$" value="248" />
         <DashboardCard title="CAC" currency="$" value="248" />
       </div>
-      {/* <div className="dashboard-carousel">
+      <div className="dashboard-carousel">
         <Carousel />
-      </div> */}
-      <div className="charts-container">
-        {/* <div className="line-chart">
-          <DropDown dataSource={CompanyRevenue} dataSourceType="line-chart" />
-          <LineChart />
-        </div>
-        <div className="pie-chart">
-          <DropDown dataSource={NumberOfUsers} dataSourceType="pie-chart" />
-          <PieChart dataSourceType = 'pie-chart'/>
-        </div> */}
-        <div className="bar-chart">
-          <DropDown dataSource={SalesOfProducts} dataSourceType="bar-chart" />
-          <BarChart />
-        </div>
-        <div className="product-pie-chart">
-          <DropDown dataSource={COPInRevenue} dataSourceType="prod-pie-chart" />
-          <DoughnutChart dataSourceType="prod-pie-chart" />
-        </div>
       </div>
     </div>
   );

@@ -243,3 +243,9 @@ export const COPInRevenue = [
     },
   },
 ];
+
+export const ProfitableYear = [
+  { year: 2022, totalProfit: 190000 },
+  { year: 2023, totalProfit: 148000 },
+  { year: 2024, totalProfit: 251000 },
+];
