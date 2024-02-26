@@ -42,7 +42,7 @@ export default function BarChart() {
       {
         label: "Products",
         data: barSOPDataSet.data.qty.map((data) => data),
-        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        backgroundColor: "rgba(125, 99, 132, 0.5)",
       },
     ],
   };

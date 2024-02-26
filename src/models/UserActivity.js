@@ -79,6 +79,7 @@ export const NumberOfUsers = {
 
 const findHighestUsersByStateOrRegion = (userData) => {
   let highestUser = { Key: "", Number_of_Users: 0 };
+  // eslint-disable-next-line
   userData.map((users) => {
     if (users.Number_of_Users > highestUser.Number_of_Users) {
       highestUser = users;

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function DashboardCard(props) {
   return (
-    <div className="bg-white rounded-lg w-[46%] sm:w-[23%] lg:h-[20vh] xl:h-[25vh] xl:h-[30vh] 2xl:h-[35vh] flex justify-center text-center flex-col p-4">
+    <div className="bg-white rounded-lg w-[46%] sm:w-[23%] lg:h-[20vh] xl:h-[25vh] 2xl:h-[30vh] flex justify-center text-center flex-col p-4">
       <p className="card-title text-xs sm:text-base md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
         {props.title}
       </p>
