@@ -51,6 +51,7 @@ export const SalesOfProducts = [
 const findStarProductOfYear = () => {
   return SalesOfProducts.map((el, yearIndex) => {
     let finalProdRevenue = { year: el.year, product: "", revenue: 0 };
+    // eslint-disable-next-line
     el.data.product.map((prod, prodIndex) => {
       let currentProdRevenue =
         el.data.qty[prodIndex] * COPInRevenue[yearIndex].data.price[prodIndex];

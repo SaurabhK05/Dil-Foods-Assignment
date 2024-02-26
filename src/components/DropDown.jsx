@@ -20,8 +20,9 @@ export default function DropDown(props) {
   const dispatch = useDispatch();
 
   const filterDataYearly = (dataSource, event) => {
+    // eslint-disable-next-line
     const selectedData = dataSource.filter((data) => {
-      if (data.year == event.target.value) {
+      if (data.year === event.target.value) {
         return data;
       }
     });
