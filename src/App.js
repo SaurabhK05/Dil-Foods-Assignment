@@ -9,8 +9,8 @@ import {
 import { SalesOfProducts, StarProductOfYear } from "./models/SalesOfProducts";
 import { ProfitAndRatioByYear } from "./models/CompanyRevenue";
 import { useSelector } from "react-redux";
-import "./App.css";
 import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const profitByYear = useSelector((state) => state.profitByYear);
@@ -50,7 +50,6 @@ function App() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  // console.log((profitByYear.totalProfit / profitByYear.totalRevenue) * 100);
   return (
     <div className="App">
       <h1 className="text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl ">

@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel as ResponsiveCarousel } from "react-responsive-carousel";
-import DropDown from "../DropDown";
 import LineChart from "../Chats/LineChart";
 import PieChart from "../Chats/PieChart";
 import BarChart from "../Chats/BarChart";
 import DoughnutChart from "../Chats/Doughnut";
-import { COPInRevenue, CompanyRevenue } from "../../models/CompanyRevenue";
-import { NumberOfUsers } from "../../models/UserActivity";
-import { SalesOfProducts } from "../../models/SalesOfProducts";
 
 export default function Carousel() {
   const [isMobileOrTablet, setIsMobileOrTablet] = useState(
