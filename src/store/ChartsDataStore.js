@@ -20,6 +20,12 @@ const ChartsDataSlice = createSlice({
     setProfitByYear: (state, action) => {
       state.profitByYear = action.payload;
     },
+    setStarProductOfYear: (state, action) => {
+      state.starProductOfYear = action.payload;
+    },
+    setHighestUsersByStateOrRegion: (state, action) => {
+      state.highestUsersByStateOrRegion = action.payload;
+    },
   },
 });
 
@@ -29,6 +35,8 @@ export const {
   setBarSOPDataSet,
   setCOPInRevenue,
   setProfitByYear,
+  setStarProductOfYear,
+  setHighestUsersByStateOrRegion,
 } = ChartsDataSlice.actions;
 
 const ChartsDataStore = configureStore({

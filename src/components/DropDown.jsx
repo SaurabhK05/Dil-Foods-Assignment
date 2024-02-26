@@ -9,6 +9,8 @@ import {
   setBarSOPDataSet,
   setCOPInRevenue,
   setProfitByYear,
+  setStarProductOfYear,
+  setHighestUsersByStateOrRegion,
 } from "../store/ChartsDataStore";
 import { useDispatch } from "react-redux";
 
@@ -44,18 +46,28 @@ export default function DropDown(props) {
         props.dataSource.profitByYear,
         event
       );
+      const filterStarProductOfYear = filterDataYearly(
+        props.dataSource.starProductOfYear,
+        event
+      );
 
       dispatch(setBarSOPDataSet(filterSalesOfProducts));
       dispatch(setLineChartDataSet(filterRovCompany));
       dispatch(setCOPInRevenue(filterCopInRevenue));
       dispatch(setProfitByYear(filterProfitByYear));
+      dispatch(setStarProductOfYear(filterStarProductOfYear));
 
       setYear(event.target.value);
     };
 
     return (
       <FormControl
-        sx={{ m: 1, minWidth: 120, backgroundColor: "white" }}
+        sx={{
+          m: 1,
+          minWidth: 120,
+          backgroundColor: "white",
+          marginTop: "1rem",
+        }}
         size="small"
       >
         <InputLabel id="demo-select-small-label">Year</InputLabel>
@@ -78,10 +90,20 @@ export default function DropDown(props) {
         dispatch(
           setPieUserActivityDataSet(props.dataSource.userActivity.region)
         );
+        dispatch(
+          setHighestUsersByStateOrRegion(
+            props.dataSource.highestUsersByStateOrRegion.region
+          )
+        );
         setRegion(event.target.value);
       } else {
         dispatch(
           setPieUserActivityDataSet(props.dataSource.userActivity.state)
+        );
+        dispatch(
+          setHighestUsersByStateOrRegion(
+            props.dataSource.highestUsersByStateOrRegion.state
+          )
         );
         setRegion(event.target.value);
       }
@@ -89,7 +111,12 @@ export default function DropDown(props) {
 
     return (
       <FormControl
-        sx={{ m: 1, minWidth: 120, backgroundColor: "white" }}
+        sx={{
+          m: 1,
+          minWidth: 120,
+          backgroundColor: "white",
+          marginTop: "1rem",
+        }}
         size="small"
       >
         <InputLabel id="demo-select-small-label">Year</InputLabel>

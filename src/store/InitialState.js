@@ -1,15 +1,20 @@
 import {
   COPInRevenue,
   CompanyRevenue,
-  ProfitableYear as ProfitByYear,
+  ProfitAndRatioByYear as ProfitByYear,
 } from "../models/CompanyRevenue";
-import { SalesOfProducts } from "../models/SalesOfProducts";
-import { NumberOfUsers } from "../models/UserActivity";
+import { SalesOfProducts, StarProductOfYear } from "../models/SalesOfProducts";
+import {
+  HighestUsersByStateOrRegion,
+  NumberOfUsers,
+} from "../models/UserActivity";
 
 export const globalInitialState = {
   lineChartDataSet: CompanyRevenue[0],
   pieUserActivityDataSet: NumberOfUsers.state,
+  highestUsersByStateOrRegion: HighestUsersByStateOrRegion.state,
   pieCOPInRevenue: COPInRevenue[0],
   barSOPDataSet: SalesOfProducts[0],
   profitByYear: ProfitByYear[0],
+  starProductOfYear: StarProductOfYear[0],
 };

@@ -209,7 +209,7 @@ export const COPInRevenue = [
         "Camera",
         "FitnessTracker",
       ],
-      qty: [30000, 25000, 40000, 20000, 22000, 18000, 30500],
+      price: [30500, 30000, 25000, 20000, 22000, 18000, 40000],
     },
   },
   {
@@ -224,7 +224,7 @@ export const COPInRevenue = [
         "Camera",
         "FitnessTracker",
       ],
-      qty: [300000, 250000, 400000, 200000, 220000, 180000, 183000],
+      price: [300000, 250000, 180000, 200000, 220000, 400000, 183000],
     },
   },
   {
@@ -239,13 +239,13 @@ export const COPInRevenue = [
         "Camera",
         "FitnessTracker",
       ],
-      qty: [340000, 283000, 455000, 227000, 250000, 222000, 178000],
+      price: [340000, 455000, 283000, 227000, 250000, 222000, 178000],
     },
   },
 ];
 
-export const ProfitableYear = [
-  { year: 2022, totalProfit: 190000 },
-  { year: 2023, totalProfit: 148000 },
-  { year: 2024, totalProfit: 251000 },
+export const ProfitAndRatioByYear = [
+  { year: 2022, totalProfit: 190000, totalRevenue: 1855000 },
+  { year: 2023, totalProfit: 148000, totalRevenue: 1733000 },
+  { year: 2024, totalProfit: 251000, totalRevenue: 2160000 },
 ];

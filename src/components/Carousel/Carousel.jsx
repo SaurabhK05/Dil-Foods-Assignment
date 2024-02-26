@@ -34,58 +34,38 @@ export default function Carousel() {
     <>
       {isMobileOrTablet ? (
         <ResponsiveCarousel>
-          {/* <div className="chart-container-1 lg:flex justify-evenly"> */}
           <div className="line-chart bg-white rounded-lg p-4">
-            <DropDown dataSource={CompanyRevenue} dataSourceType="line-chart" />
             <LineChart />
           </div>
           <div className="pie-chart bg-white rounded-lg p-4 w-2/3 mx-auto">
-            <DropDown dataSource={NumberOfUsers} dataSourceType="pie-chart" />
+            <p className="chart-title">No of Users in State</p>
             <PieChart dataSourceType="pie-chart" />
           </div>
-          {/* </div> */}
-          {/* <div className="chart-container-2 flex justify-evenly"> */}
           <div className="bar-chart bg-white rounded-lg p-4">
-            <DropDown dataSource={SalesOfProducts} dataSourceType="bar-chart" />
             <BarChart />
           </div>
           <div className="product-pie-chart bg-white rounded-lg p-4 w-2/3 mx-auto">
-            <DropDown
-              dataSource={COPInRevenue}
-              dataSourceType="prod-pie-chart"
-            />
+            <p className="chart-title">Product Contribution in Business</p>
             <DoughnutChart dataSourceType="prod-pie-chart" />
           </div>
-          {/* </div> */}
         </ResponsiveCarousel>
       ) : (
         <ResponsiveCarousel>
           <div className="chart-container-1 lg:flex justify-evenly ">
             <div className="line-chart bg-white rounded-lg p-4 w-2/4">
-              {/* <DropDown
-                dataSource={CompanyRevenue}
-                dataSourceType="line-chart"
-              /> */}
               <LineChart />
             </div>
             <div className="pie-chart bg-white rounded-lg p-4 w-2/5">
-              {/* <DropDown dataSource={NumberOfUsers} dataSourceType="pie-chart" /> */}
+              <p className="chart-title">No of Users in State</p>
               <PieChart dataSourceType="pie-chart" />
             </div>
           </div>
           <div className="chart-container-2 lg:flex justify-evenly">
             <div className="bar-chart bg-white rounded-lg p-4 w-2/4">
-              {/* <DropDown
-                dataSource={SalesOfProducts}
-                dataSourceType="bar-chart"
-              /> */}
               <BarChart />
             </div>
             <div className="product-pie-chart bg-white rounded-lg p-4 w-2/5">
-              {/* <DropDown
-                dataSource={COPInRevenue}
-                dataSourceType="prod-pie-chart"
-              /> */}
+              <p className="chart-title">Product Contribution in Business</p>
               <DoughnutChart dataSourceType="prod-pie-chart" />
             </div>
           </div>

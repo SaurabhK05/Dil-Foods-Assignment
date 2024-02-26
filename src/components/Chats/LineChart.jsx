@@ -30,7 +30,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "Company Revenue",
     },
   },
 };
@@ -41,7 +41,7 @@ export default function LineChart() {
     labels: CompanyRevenue.data.map((Data) => Data.month),
     datasets: [
       {
-        label: "Company Revenue ",
+        label: "Revenue",
         data: CompanyRevenue.data.map((Data) => Data.revenue),
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -49,7 +49,7 @@ export default function LineChart() {
         // borderWidth: 2,
       },
       {
-        label: "Company Profit ",
+        label: "Profit",
         data: CompanyRevenue.data.map((Data) => Data.profit),
         borderColor: "rgb(53, 162, 235)",
         backgroundColor: "rgba(53, 162, 235, 0.5)",

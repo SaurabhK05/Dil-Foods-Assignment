@@ -28,7 +28,7 @@ export const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Bar Chart",
+      text: "Sales of Products",
     },
   },
 };
@@ -36,7 +36,6 @@ export const options = {
 export default function BarChart() {
   const barSOPDataSet = useSelector((state) => state.barSOPDataSet);
 
-  console.log(barSOPDataSet);
   const data = {
     labels: barSOPDataSet.data.product.map((label) => label),
     datasets: [

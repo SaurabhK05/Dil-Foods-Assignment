@@ -11,8 +11,8 @@ export default function DoughnutChart() {
     labels: COPInRevenue.data.product.map((label) => label),
     datasets: [
       {
-        label: "No of Users",
-        data: COPInRevenue.data.qty.map((data) => data),
+        label: "Product Contribution",
+        data: COPInRevenue.data.price.map((data) => data),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

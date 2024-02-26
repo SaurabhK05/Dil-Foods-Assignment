@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function PieChart(props) {
+export default function PieChart() {
   const NumberOfUsers = useSelector((state) => state.pieUserActivityDataSet);
 
   const data = {
@@ -21,6 +21,12 @@ export default function PieChart(props) {
           "rgba(75, 192, 192, 0.2)",
           "rgba(153, 102, 255, 0.2)",
           "rgba(255, 159, 64, 0.2)",
+          "rgba(0, 255, 167, .2)",
+          "rgba(60, 179, 113, .2)",
+          "rgba(255, 218, 185, .5)",
+          "rgba(176, 224, 230, .1)",
+          "rgba(221, 160, 221, .1)",
+          "rgba(240, 128, 128, .3)",
         ],
         borderColor: [
           "rgba(255, 99, 132, 1)",

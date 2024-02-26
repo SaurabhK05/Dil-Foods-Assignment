@@ -76,3 +76,18 @@ export const NumberOfUsers = {
   state: NumberOfUsersStateWise,
   region: NumberOfUsersRegionWise,
 };
+
+const findHighestUsersByStateOrRegion = (userData) => {
+  let highestUser = { Key: "", Number_of_Users: 0 };
+  userData.map((users) => {
+    if (users.Number_of_Users > highestUser.Number_of_Users) {
+      highestUser = users;
+    }
+  });
+  return highestUser;
+};
+
+export const HighestUsersByStateOrRegion = {
+  state: findHighestUsersByStateOrRegion(NumberOfUsersStateWise),
+  region: findHighestUsersByStateOrRegion(NumberOfUsersRegionWise),
+};

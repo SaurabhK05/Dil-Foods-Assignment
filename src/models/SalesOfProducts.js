@@ -1,3 +1,5 @@
+import { COPInRevenue } from "./CompanyRevenue";
+
 export const SalesOfProducts = [
   {
     year: 2022,
@@ -45,3 +47,23 @@ export const SalesOfProducts = [
     },
   },
 ];
+
+const findStarProductOfYear = () => {
+  return SalesOfProducts.map((el, yearIndex) => {
+    let finalProdRevenue = { year: el.year, product: "", revenue: 0 };
+    el.data.product.map((prod, prodIndex) => {
+      let currentProdRevenue =
+        el.data.qty[prodIndex] * COPInRevenue[yearIndex].data.price[prodIndex];
+      if (currentProdRevenue > finalProdRevenue.revenue) {
+        finalProdRevenue = {
+          ...finalProdRevenue,
+          product: prod,
+          revenue: currentProdRevenue,
+        };
+      }
+    });
+    return finalProdRevenue;
+  });
+};
+
+export const StarProductOfYear = findStarProductOfYear();
